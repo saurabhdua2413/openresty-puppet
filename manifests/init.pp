@@ -44,18 +44,6 @@ class openresty {
              path => ['/usr/local/src/openresty-1.9.7.4','/usr/bin','/bin','/sbin'],
              command => 'make install',
         }		
-exec { 'make':
-	     user => 'root',
-             cwd => '/usr/local/src/openresty-1.9.7.4',
-	     path => ['/usr/local/src/openresty-1.9.7.4','/usr/bin','/bin','/sbin'],
-	     command => 'make',
-	} ->
-	exec { 'make-install':  
-             user => 'root',
-	     cwd => '/usr/local/src/openresty-1.9.7.4',
-             path => ['/usr/local/src/openresty-1.9.7.4','/usr/bin','/bin','/sbin'],
-             command => 'make install',
-        }		
 	file { '/etc/profile.d/append-nginx-path.sh':
     	    mode    => 644,
             content => 'PATH=/usr/local/openresty/nginx/sbin:$PATH',
