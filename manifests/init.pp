@@ -44,7 +44,7 @@ class openresty {
              path => ['/usr/local/src/openresty-1.9.7.4','/usr/bin','/bin','/sbin'],
              command => 'make install',
         }		
-        file { '/etc/profile.d/append-nginx-path.sh':
+	file { '/etc/profile.d/append-nginx-path.sh':
     	    mode    => 644,
             content => 'PATH=/usr/local/openresty/nginx/sbin:$PATH',
 	    before => Exec['run-nginx'],
@@ -57,5 +57,3 @@ class openresty {
 	}
 
 }
-	
-
